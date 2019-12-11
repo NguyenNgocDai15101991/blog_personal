@@ -1,7 +1,11 @@
 package daif5.blog_personal;
 
+import daif5.blog_personal.service.UserService;
+import daif5.blog_personal.service.impl.UserServiceImpl;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.Bean;
+import org.springframework.security.core.userdetails.UserDetailsService;
 
 @SpringBootApplication
 public class BlogPersonalApplication {
@@ -10,4 +14,8 @@ public class BlogPersonalApplication {
         SpringApplication.run(BlogPersonalApplication.class, args);
     }
 
+    @Bean
+    public UserService userService() {
+        return new UserServiceImpl();
+    }
 }
